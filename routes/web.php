@@ -34,17 +34,17 @@ Route::get('/watch-list', function () {
 });
 
 
-Route::get('/create-article', function () {
-    return view('pages.admin-create-article');
-});
+// Route::get('/create-article', function () {
+//     return view('pages.admin-create-article');
+// });
 
 // Route::get('/show-article', function () {
 //     return view('pages.admin-show-article');
 // });
 
-
+Route::get('/create-article', [BeritaController::class, 'create']);
 Route::get('/show-article', [BeritaController::class, 'index']);
-
+Route::post('/store-article', [BeritaController::class, 'store']);
 
 
 

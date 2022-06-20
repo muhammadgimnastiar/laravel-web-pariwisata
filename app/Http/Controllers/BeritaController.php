@@ -31,8 +31,10 @@ class BeritaController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin-create-article');
     }
+
+    
 
     /**
      * Store a newly created resource in storage.
@@ -42,7 +44,22 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+    		'judul' => 'required',
+    		'picture' => 'required',
+    		'content' => 'required',
+            
+    	]);
+ 
+        Berita::create([
+    		'judul' => $request->judul,
+    		'picture' => $request->picture,
+    		'content' => $request->content,
+            'kategori_id' => 1
+
+    	]);
+ 
+    	return redirect('/show-article');
     }
 
     /**

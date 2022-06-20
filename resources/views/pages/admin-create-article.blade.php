@@ -11,18 +11,35 @@
            <div class="card-body">
            <div class="card-title">Bikin Artikel apa Hari ini?</div>
            <hr>
-            <form>
+            <form method="post" action="/store-article">
+              {{ csrf_field() }}
+              @method('post')
            <div class="form-group">
-            <label for="input-1">Judul</label>
-            <input type="text" class="form-control" id="input-1" placeholder="Masukkan judul artikel">
+            <label for="judul">Judul</label>
+            <input type="text" class="form-control" id="judul" name="judul" placeholder="Masukkan judul artikel">
+            @if($errors->has('judul'))
+                                <div class="text-danger">
+                                    {{ $errors->first('judul')}}
+                                </div>
+                            @endif
            </div>
            <div class="form-group">
-            <label for="input-2">Thumbnail</label>
-            <input type="text" class="form-control" id="input-2" placeholder="Masukkan url thumbnail artikel (http://urlimg.png)">
+            <label for="picture">Thumbnail</label>
+            <input type="text" class="form-control" id="picture" name="picture" placeholder="Masukkan url thumbnail artikel (http://urlimg.png)">
+            @if($errors->has('picture'))
+                                <div class="text-danger">
+                                    {{ $errors->first('picture')}}
+                                </div>
+                            @endif
            </div>
            <div class="form-group">
-            <label for="input-3">Isi Content</label>
-            <input type="text" class="form-control" id="input-3" placeholder="Masukkan isi artikel">
+            <label for="content">Isi Content</label>
+            <input type="text" class="form-control" id="content" name="content" placeholder="Masukkan isi artikel">
+            @if($errors->has('content'))
+                                <div class="text-danger">
+                                    {{ $errors->first('content')}}
+                                </div>
+                            @endif
            </div>
            
            {{-- <div class="form-group py-2">
