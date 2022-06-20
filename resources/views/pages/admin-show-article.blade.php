@@ -15,15 +15,12 @@
                   <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">Heading</th>
-                      <th scope="col">Heading</th>
-                      <th scope="col">Heading</th>
-                      <th scope="col">Heading</th>
-                      <th scope="col">Heading</th>
-                      <th scope="col">Heading</th>
-                      <th scope="col">Heading</th>
-                      <th scope="col">Heading</th>
-                      <th scope="col">Heading</th>
+                      <th scope="col">Judul</th>
+                      <th scope="col">Image</th>
+                      <th scope="col">Content</th>
+                      <th scope="col">Opsi</th>
+
+                     
                     </tr>
                   </thead>
                   <tbody>

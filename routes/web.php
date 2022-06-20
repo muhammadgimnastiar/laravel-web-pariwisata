@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+// use App\Http\Controllers;
+// use App\Http\Controllers\BeritaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,9 +39,10 @@ Route::get('/create-article', function () {
     return view('pages.admin-create-article');
 });
 
-Route::get('/show-article', function () {
-    return view('pages.admin-show-article');
-});
+// Route::get('/show-article', function () {
+//     return view('pages.admin-show-article');
+// });
+
 
 
 
