@@ -14,55 +14,30 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Heading</th>
-                      <th scope="col">Heading</th>
-                      <th scope="col">Heading</th>
-                      <th scope="col">Heading</th>
-                      <th scope="col">Heading</th>
-                      <th scope="col">Heading</th>
-                      <th scope="col">Heading</th>
-                      <th scope="col">Heading</th>
-                      <th scope="col">Heading</th>
+                      
+                      <th scope="col">Judul</th>
+                      <th scope="col">Content</th>
+                      <th scope="col">Opsi</th>
+                      
+                      
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                      <td>Cell</td>
-                    </tr>
+                    
+                      
+                      
+                      @foreach ($berita as $item)
+                      <tr>
+                      
+                      <td>{{$item->judul}}</td>
+                      <td>{{$item->content}}</td>
+                      <td>
+                        <a href="/berita/edit/{{ $item->id }}" class="btn btn-warning">Edit</a>
+                        <a href="/berita/hapus/{{ $item->id }}" class="btn btn-danger">Hapus</a>
+                    </td>
+                      </tr>
+                      @endforeach
+                    
                   </tbody>
                 </table>
               </div>
@@ -70,6 +45,8 @@
           </div>
         </div>
       </div><!--End Row-->
+
+      
 	  
 	  <!--start overlay-->
 		  <div class="overlay toggle-menu"></div>

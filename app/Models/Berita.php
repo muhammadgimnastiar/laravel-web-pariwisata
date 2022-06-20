@@ -10,6 +10,7 @@ class Berita extends Model
     use HasFactory;
 
     protected $guarded = [];
+    protected $table = "berita";
 
     public function kategori(){
         return $this->belongsTo(Kategori::class);

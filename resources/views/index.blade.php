@@ -6,7 +6,26 @@
   </div>
   <div class="content">
     <!-- artikel 1 -->
+
+    @foreach ($berita as $item)
     <div class="card">
+      <div class="card-thumb">
+        <img src='{{$item->picture}}' alt=''>
+      </div>
+      <div class="card-content">
+        <div>
+          <span class="card-date">Recent</span>
+          <span class="card-date">| Gimnas</span>
+          <h2 class="card-title">{{$item->judul}}</h2>
+          <p>
+            {{$item->content}}
+          </p>
+          <a href="#" class="card-btn" target="_blank">Read Full Article</a>
+        </div>
+      </div>
+    </div>
+    @endforeach
+    {{-- <div class="card">
       <div class="card-thumb">
         <img src='{{asset('images/vacation.jpg')}}' alt=''>
       </div>
@@ -21,9 +40,9 @@
           <a href="#" class="card-btn" target="_blank">Read Full Article</a>
         </div>
       </div>
-    </div>
+    </div> --}}
     <!-- artikel 2 -->
-    <div class="card">
+    {{-- <div class="card">
       <div class="card-thumb">
         <img src='{{asset('images/bekantan.jpg')}}' alt=''>
       </div>
@@ -99,7 +118,7 @@
 
     
     
-    </div>
+    </div> --}}
 
     <!-- PAginatio -->
     <nav aria-label="..." class="pagination">
