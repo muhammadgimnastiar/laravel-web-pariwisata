@@ -46,6 +46,12 @@ Route::get('/create-article', [BeritaController::class, 'create']);
 Route::get('/show-article', [BeritaController::class, 'index']);
 Route::post('/store-article', [BeritaController::class, 'store']);
 
+Route::get('/edit-article/{id}', [BeritaController::class, 'edit']);
+
+Route::get('/hapus-article/{id}', [BeritaController::class, 'delete']);
+
+Route::put('/update-article/{id}', [BeritaController::class, 'update']);
+
 
 
 

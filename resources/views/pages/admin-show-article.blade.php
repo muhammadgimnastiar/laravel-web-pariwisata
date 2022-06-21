@@ -9,7 +9,7 @@
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Responsive Table</h5>
+              <h5 class="card-title">Daftar Artikel Yang telah dibuat:</h5>
               <div class="table-responsive">
                 <table class="table">
                   <thead>
@@ -32,8 +32,8 @@
                       <td>{{$item->judul}}</td>
                       <td>{{$item->content}}</td>
                       <td>
-                        <a href="/berita/edit/{{ $item->id }}" class="btn btn-warning">Edit</a>
-                        <a href="/berita/hapus/{{ $item->id }}" class="btn btn-danger">Hapus</a>
+                        <a href="/edit-article/{{ $item->id }}" class="btn btn-warning">Edit</a>
+                        <a href="/hapus-article/{{ $item->id }}" class="btn btn-danger">Hapus</a>
                     </td>
                       </tr>
                       @endforeach

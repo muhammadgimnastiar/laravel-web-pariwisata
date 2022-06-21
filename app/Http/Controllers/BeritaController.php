@@ -62,6 +62,13 @@ class BeritaController extends Controller
     	return redirect('/show-article');
     }
 
+    public function delete($id)
+    {
+        $berita = Berita::find($id);
+        $berita->delete();
+        return redirect('/show-article');
+    }
+
     /**
      * Display the specified resource.
      *
@@ -81,7 +88,8 @@ class BeritaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $berita = Berita::find($id);
+    return view('pages.admin-edit-article', ['berita' => $berita]);
     }
 
     /**
@@ -93,7 +101,20 @@ class BeritaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+    		'judul' => 'required',
+    		'picture' => 'required',
+    		'content' => 'required',
+            
+    	]);
+ 
+       $berita = Berita::find($id);
+       $berita->judul = $request->judul;
+       $berita->picture = $request->picture ;
+       $berita->content = $request->content;
+            $berita ->save();
+            return redirect('/show-article');
+            
     }
 
     /**
