@@ -26,36 +26,7 @@
 </script>
 
 <body>
-    <header>
-      <a href="#" class="logo"><img src="{{asset('images/logo.png')}}" alt="" srcset=""></a>
-      <input type="checkbox" name="menu-bar" id="menu-bar">
-      <label for="menu-bar">Menu</label>
-      <navbar class="navbar">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="/profile">Profile</a></li>
-          <li><a href="#">Kategori +</a>
-            <ul >
-              <li><a href="#">Wisata Alam</a></li>
-              <li><a href="#">Wisata Kuliner</a></li>
-              <li><a href="#">Wisata Bahari</a></li>
-              <li><a href="#">Semua Wisata</a></li>
-              <li></li>
-            
-            </ul>
-            
-          </li>
-          <li><a href="/calculator">Calculator App</a></li>
-          <li><a href="/watch-list">Watch list</a></li>
-          <li><a href="/form">Form</a></li>
-          <li><a href="/admin">Admin</a></li>
-
-
-  
-  
-        </ul>
-      </navbar>
-    </header>
+    @include('layouts.navbar')
   
     <div class="video-intro">
       <video src="{{asset('video/wonder.webm')}}" loop muted autoplay contenttype="webm; codecs=vp9">
@@ -70,58 +41,11 @@
   
       </section>
   
-      <aside class="sidebar">
-        <div class="title-side">
-          Berita Populer Abad ini
-        </div>
-  
-        <div class="card-side">
-          <div class="card-side-content">
-            <br>
-            <a href="#">
-            <h2>Tips travelling ga bikin kantong kering</h2>
-          </a>
-          </div>
-        </div>
-        
-        <div class="card-side">
-          <div class="card-side-content">
-            <br>
-            <a href="#">
-            <h2>7 Spot Wisata di Kalimantan Selatan</h2>
-          </a>
-          </div>
-        </div>
-  
-        <div class="card-side">
-          <div class="card-side-content">
-            <br>
-            <a href="#">
-            <h2>Kuliner wajib saat berkunjung ke Kalimantas Selatan</h2>
-          </a>
-          </div>
-        </div>
-        <form class="d-flex side-search">
-          <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
-          <button class="btn bg-light" type="submit">Search</button>
-        </form>
-  
-      </aside>
+      @include('layouts.sidebar')
       
     </main>
   
-    <footer>
-      
-      <div class="copyright">
-          <ul class="list-inline">
-              <li class="list-inline-item"><a href="#">Home</a></li>
-              <li class="list-inline-item"><a href="#">Services</a></li>
-              <li class="list-inline-item"><a href="#">About</a></li>
-              <li class="list-inline-item"><a href="#">Linkedin</a></li>
-          </ul>
-        <span>&copy 2022 GimPariwisata</span>
-      </div>
-    </footer>
+    @include('layouts.footer')
   
   
   
