@@ -126,7 +126,7 @@ class BeritaController extends Controller
     {
         $berita = Berita::find($id);
         if($berita!=null){
-            $ berita->delete();
+            $berita->delete();
             return response([
                 'status'=>'Berita berhasil didelete'
             ]);
