@@ -3,6 +3,8 @@
 use App\http\Controllers\Api\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\BeritaController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -26,4 +28,19 @@ Route::prefix('v1')->group(function(){
         Route::post('refresh', [AuthController::class, 'refresh']);
         Route::post('me', [AuthController::class, 'me']);
     });
+
+    Route::middleware('jwt.verify')->group(function(){
+        Route::apiResource('berita', BeritaController::class,[
+            'as'=>'api'
+        ]);
+    });
+
+
+});
+
+Route::any('{any}', function(){
+    return response()->json([
+        'status'=>'error',
+        'message'=>'Resource not found'
+    ], 404);
 });
