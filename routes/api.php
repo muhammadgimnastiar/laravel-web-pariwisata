@@ -43,4 +43,4 @@ Route::any('{any}', function(){
         'status'=>'error',
         'message'=>'Resource not found'
     ], 404);
-});
+})->where('any','.*');

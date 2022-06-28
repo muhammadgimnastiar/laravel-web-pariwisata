@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Models\Berita;
-use App\Html\Resource\BeritaResource;
+use App\Models\Berita;
+use App\Http\Resources\BeritaResource;
 use Illuminate\Support\Facades\Validator;
 
 class BeritaController extends Controller
@@ -21,7 +21,7 @@ class BeritaController extends Controller
         return response()->json([
             'total'=>$berita->count(),
             'message'=>'Retrivied successufy',
-            'data'=>BeritaSupplier::collection($berita)
+            'data'=>BeritaResource::collection($berita)
         ], 200);
     }
 
@@ -33,7 +33,27 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(),[
+
+            'judul'=>'required|max:100',
+            'picture'=>'required|max:100', 
+            'content'=> 'required|max:1000', 
+            'kategori_id'=>'required|numeric'
+
+        ]);
+
+        if($validator->fails()){
+            return response([
+                'error'=>$validator->error(),
+                'status'=>'Validator errror'
+            ]);
+        }
+
+        $berita = Berita::create($request->all());
+        return response([
+            'data'=>new BeritaResource($berita), 
+            'message'=>'Article has been ccreated'
+        ], 201);
     }
 
     /**
@@ -44,7 +64,17 @@ class BeritaController extends Controller
      */
     public function show($id)
     {
-        //
+        $berita = Berita::find($id);
+        if($berita!=null){
+            return response([
+                'Article'=>new BeritaResource($berita),
+                'message'=>'Retrived data success'
+            ]);
+        }else{
+            return response([
+                'message'=>'No data found',
+            ], 401);
+        }
     }
 
     /**
@@ -56,7 +86,34 @@ class BeritaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(),[
+
+            'judul'=>'required|max:100',
+            'picture'=>'required|max:100', 
+            'content'=> 'required|max:1000', 
+            'kategori_id'=>'required|numeric'
+
+        ]);
+
+        if($validator->fails()){
+            return response([
+                'error'=>$validator->error(),
+                'status'=>'Validator errror'
+            ]);
+        }
+
+        $berita = Berita::find($id);
+        if($berita!=null){
+            $berita->update($request->all());
+            return response([
+                'Article'=>new BeritaResource($berita),
+                'message'=>'Data has been updated'
+            ]);
+        }else{
+            return response([
+                'message'=>'No data found',
+            ], 403);
+        }
     }
 
     /**
@@ -67,6 +124,16 @@ class BeritaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $berita = Berita::find($id);
+        if($berita!=null){
+            $ berita->delete();
+            return response([
+                'status'=>'Berita berhasil didelete'
+            ]);
+        }else{
+            return response([
+                'ststus'=>'No data found'
+            ], 403);
+        }
     }
 }

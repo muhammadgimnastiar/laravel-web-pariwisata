@@ -20,7 +20,7 @@ return new class extends Migration
                 ->on('kategori')
                 ->onDelete('cascade')
                 ->onUpdate('cascade'); 
-            $table->string('judul', 50);
+            $table->string('judul', 100);
             $table->string('content', 3000);
             $table->string('picture', 100);
                
