@@ -33,6 +33,14 @@ Route::get('/watch-list', function () {
     return view('pages.watch-list');
 });
 
+Route::get('/login', function () {
+    return view('pages.login');
+});
+
+Route::get('/register', function () {
+    return view('pages.register');
+});
+
 
 // Route::get('/create-article', function () {
 //     return view('pages.admin-create-article');
