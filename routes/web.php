@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\Auth\LoginController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,11 +17,12 @@ use App\Http\Controllers\BeritaController;
 
 Route::get('/', [BeritaController::class, 'showcontentindex']);
 Route::get('/index', [BeritaController::class, 'showcontentindex']);
+Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/superadmin', [SuperAdminController::class,'index']);
 
-
-Route::get('/admin', function () {
-    return view('admin');
-});
+// Route::get('/admin', function () {
+//     return view('admin');
+// });
 
 Route::get('/profile', function () {
     return view('pages.profile');
@@ -40,6 +43,8 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('pages.register');
 });
+
+
 
 
 // Route::get('/create-article', function () {
@@ -64,3 +69,7 @@ Route::put('/update-article/{id}', [BeritaController::class, 'update']);
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
