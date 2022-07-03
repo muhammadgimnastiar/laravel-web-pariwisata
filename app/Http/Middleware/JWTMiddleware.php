@@ -25,7 +25,6 @@ class JWTMiddleware
 
         try{
             $user = JWTAuth::parseToken()->authenticate();
-            
         }catch(Exception $e){
             if($e instanceof TokenInvalidException){
                 return response()->json(['status'=> 'Token is Invalid'], 403);
