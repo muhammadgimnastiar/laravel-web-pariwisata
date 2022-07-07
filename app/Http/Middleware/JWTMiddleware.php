@@ -9,6 +9,8 @@ use Tymon\JWTAuth\Exceptions\TokenBlacklistedException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use App\Models\Berita;
+use App\Http\Resources\BeritaResource;
 
 
 class JWTMiddleware
@@ -23,6 +25,9 @@ class JWTMiddleware
     public function handle(Request $request, Closure $next)
     {
 
+        $method = $request->method();
+        
+        
         try{
             $user = JWTAuth::parseToken()->authenticate();
         }catch(Exception $e){

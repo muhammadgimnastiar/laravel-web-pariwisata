@@ -29,15 +29,19 @@ Route::prefix('v1')->group(function(){
         Route::post('me', [AuthController::class, 'me']);
     });
 
-    // Route::prefix('guest')->group(function(){
-    //     Route::post('berita', []);
-    // });
+    
 
     Route::middleware('jwt.verify')->group(function(){
         Route::apiResource('berita', BeritaController::class,[
             'as'=>'api'
         ]);
     });
+    
+    Route::middleware('jwt.guest')->group(function(){
+        Route::post('berita', [BeritaController::class, 'show']);
+    });
+
+    
 
 
 });

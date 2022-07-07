@@ -46,6 +46,7 @@ Route::get('/login', function () {
 //     return view('pages.admin-show-article');
 // });
 
+
 Route::get('/create-article', [BeritaController::class, 'create']);
 Route::get('/show-article', [BeritaController::class, 'index']);
 Route::post('/store-article', [BeritaController::class, 'store']);
